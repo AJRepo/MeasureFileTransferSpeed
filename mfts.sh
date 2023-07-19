@@ -12,9 +12,9 @@ DEST_FILE=$1
 ORIG_FILE=$2
 DEST="false"
 
-if stat -c %s "$0"; then
+if stat -c %s "$0" > /dev/null 2>&1; then
   STAT_OPTS="-c %s"
-elif stat -f %z "$0"; then
+elif stat -f %z "$0" > /dev/null 2>&1; then
   STAT_OPTS="-f %z"
 else
   echo "Error: cannot figure out your stat formatting"
